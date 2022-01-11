@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ResourcesController {
 
-    @GetMapping("/")
+    @GetMapping("/resources")
     public String index() {
         return "Resources Controller emplacement ";
     }
