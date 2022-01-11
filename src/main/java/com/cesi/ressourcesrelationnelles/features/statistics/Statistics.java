@@ -1,6 +1,6 @@
 package com.cesi.ressourcesrelationnelles.features.statistics;
 
-public class StatisticsClass {
+public class Statistics {
         public int id;
         public int nbVues;
         public int id_ressource;
