@@ -5,8 +5,8 @@ management:
     port:8090
   endpoints:
     web:
-      exposure:
-        include:*
+      expose:"*"
+
   endpoint:
     shutdown:
       enabled:true
