@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CommentsController {
 
-    @GetMapping("/all-comments")
+    @GetMapping("/comments")
     public String getAllComments() {
         return "Here are all the comments";
     }
