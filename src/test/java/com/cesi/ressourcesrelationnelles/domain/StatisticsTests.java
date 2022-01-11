@@ -1,7 +1,6 @@
-package com.cesi.ressourcesrelationnelles.controller;
+package com.cesi.ressourcesrelationnelles.domain;
 
 import org.junit.jupiter.api.Test;
-import com.cesi.ressourcesrelationnelles.features.statistics.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -9,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class StatisticsTests {
     @Test
     public void createStatistic() {
-        Statistics stat = new Statistics();
+        Statistic stat = new Statistic();
         assertNotNull(stat);
         stat.setId(1);
         assertEquals(1, stat.getId());
@@ -17,7 +16,7 @@ public class StatisticsTests {
 
     @Test
     public void getNbVues() {
-        Statistics stat = new Statistics();
+        Statistic stat = new Statistic();
         assertNotNull(stat);
         stat.setId(1);
         stat.setNbVues(2000);
