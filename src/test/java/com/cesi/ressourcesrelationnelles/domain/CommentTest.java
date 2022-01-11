@@ -1,16 +1,15 @@
-package com.cesi.ressourcesrelationnelles;
+package com.cesi.ressourcesrelationnelles.domain;
 
-import com.cesi.ressourcesrelationnelles.features.comments.CommentClass;
 import org.junit.jupiter.api.Test;
 import org.springframework.util.Assert;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CommentClassTest {
+public class CommentTest {
 
     @Test
     public void createCommentTest() {
-        CommentClass comment = new CommentClass();
+        Comment comment = new Comment();
         comment.setId(1);
         comment.setAuthor("Romain");
         comment.setTitle("Super intéressant !");

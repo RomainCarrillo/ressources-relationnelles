@@ -1,4 +1,4 @@
-package com.cesi.ressourcesrelationnelles.features.users.domain;
+package com.cesi.ressourcesrelationnelles.domain;
 
 public class User {
     private int id;
@@ -28,12 +28,12 @@ public class User {
         return lastName;
     }
 
-    public String getFullName() {
-        return firstName + " " + lastName;
-    }
-
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getFullName() {
+        return firstName + " " + lastName;
     }
 
     public String getEmail() {

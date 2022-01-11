@@ -1,6 +1,6 @@
-package com.cesi.ressourcesrelationnelles.features.comments;
+package com.cesi.ressourcesrelationnelles.domain;
 
-public class CommentClass {
+public class Comment {
     private int id;
     private String author;
     private String title;
