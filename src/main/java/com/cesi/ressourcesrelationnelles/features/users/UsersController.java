@@ -4,9 +4,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class UserController {
+public class UsersController {
 
-    @GetMapping("/user")
+    @GetMapping("/users")
     public String index() {
         return "Welcome user !";
     }
