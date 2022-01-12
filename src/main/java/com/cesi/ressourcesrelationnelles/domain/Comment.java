@@ -6,6 +6,16 @@ public class Comment {
     private String title;
     private String content;
 
+    public Comment() {
+    }
+
+    public Comment(int id, String author, String title, String content) {
+        this.setId(id);
+        this.setAuthor(author);
+        this.setTitle(title);
+        this.setContent(content);
+    }
+
     public int getId() {
         return id;
     }
@@ -37,6 +47,4 @@ public class Comment {
     public void setContent(String content) {
         this.content = content;
     }
-
-
 }
