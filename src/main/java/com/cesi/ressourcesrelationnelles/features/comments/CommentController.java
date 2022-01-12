@@ -1,10 +1,7 @@
 package com.cesi.ressourcesrelationnelles.features.comments;
 
 import com.cesi.ressourcesrelationnelles.domain.Comment;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,4 +22,11 @@ public class CommentController {
     public Comment addComment(@RequestBody Comment comment) {
         return commentService.create(comment);
     }
+
+    @DeleteMapping("/comments")
+    public void deleteComment(@RequestBody Comment comment) {
+        commentService.delete(comment);
+    }
+
+
 }
