@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class StatisticsTests {
     @Test
     public void createStatistic() {
-        Statistic stat = new Statistic();
+        Statistic stat = new Statistic(1, 1, 200);
         assertNotNull(stat);
         stat.setId(1);
         assertEquals(1, stat.getId());
@@ -16,7 +16,7 @@ public class StatisticsTests {
 
     @Test
     public void getNbVues() {
-        Statistic stat = new Statistic();
+        Statistic stat = new Statistic(1, 1, 10);
         assertNotNull(stat);
         stat.setId(1);
         stat.setNbVues(2000);

@@ -28,4 +28,10 @@ public class Statistic {
     public void setId_ressource(int id_ressource) {
         this.id_ressource = id_ressource;
     }
+
+    public Statistic(int id, int idRessource, int nbVues) {
+        this.id = id;
+        this.id_ressource = idRessource;
+        this.nbVues = nbVues;
+    }
 }
