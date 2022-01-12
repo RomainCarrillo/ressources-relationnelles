@@ -33,7 +33,7 @@ public class CommentServiceTest {
 
         commentService.createList(expectedCommentList);
 
-        List<Comment> actualCommentList = commentService.list();
+        List<Comment> actualCommentList = commentService.getList();
 
         assertFalse(actualCommentList.isEmpty());
         assertEquals(expectedCommentList.size(), actualCommentList.size());
