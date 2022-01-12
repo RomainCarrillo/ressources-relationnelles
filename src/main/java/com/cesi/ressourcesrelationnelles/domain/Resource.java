@@ -1,10 +1,19 @@
 package com.cesi.ressourcesrelationnelles.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Resource {
 
-    private int resourcesTypes;
+    @Id
+    @GeneratedValue
+    private long id;
     private String resourcesName;
-    private int id;
+
+    private int resourcesTypes;
+
 
     public Resource(int resourcesTypes, String resourcesName, int id) {
         this.resourcesTypes = resourcesTypes;
@@ -32,7 +41,7 @@ public class Resource {
         this.resourcesTypes = resourcesTypes;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
