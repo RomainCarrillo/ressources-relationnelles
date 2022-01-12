@@ -6,6 +6,16 @@ public class Resource {
     private String ResourcesName;
     private int id;
 
+    public Resource(int resourcesTypes, String resourcesName, int id) {
+        ResourcesTypes = resourcesTypes;
+        ResourcesName = resourcesName;
+        this.id = id;
+    }
+
+    public Resource() {
+        
+    }
+
     public String getResourcesName() {
         return ResourcesName;
     }
