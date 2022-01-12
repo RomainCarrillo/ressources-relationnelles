@@ -1,7 +1,14 @@
 package com.cesi.ressourcesrelationnelles.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity(name = "COMMENT")
 public class Comment {
-    private int id;
+    @Id
+    @GeneratedValue
+    private Long id;
     private String author;
     private String title;
     private String content;
@@ -9,18 +16,18 @@ public class Comment {
     public Comment() {
     }
 
-    public Comment(int id, String author, String title, String content) {
+    public Comment(Long id, String author, String title, String content) {
         this.setId(id);
         this.setAuthor(author);
         this.setTitle(title);
         this.setContent(content);
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
