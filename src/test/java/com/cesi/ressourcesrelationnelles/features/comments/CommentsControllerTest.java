@@ -14,8 +14,10 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.util.CollectionUtils.isEmpty;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -35,6 +37,6 @@ class CommentsControllerTest {
         });
 
         assertNotNull(responseCommentList);
-        assertNotNull(responseCommentList);
+        assertFalse(isEmpty(responseCommentList));
     }
 }
