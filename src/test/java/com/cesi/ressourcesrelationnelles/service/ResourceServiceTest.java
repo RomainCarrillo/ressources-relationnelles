@@ -18,7 +18,7 @@ public class ResourceServiceTest {
     @Test
     public void createResourceTest() {
         Resource resource = new Resource();
-        resourceService.createResources(resource);
+        resourceService.createResource(resource);
         List<Resource> actualResourceList = resourceService.list();
         assertNotNull(actualResourceList);
     }

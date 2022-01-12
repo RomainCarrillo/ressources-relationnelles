@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class ResourceService {
 
-    private ResourceRepository resourceRepository;
+    private final ResourceRepository resourceRepository;
 
     public ResourceService(ResourceRepository commentRepository) {
         this.resourceRepository = commentRepository;
@@ -20,8 +20,8 @@ public class ResourceService {
         return resourceRepository.findAll();
     }
 
-    public void createResources(Resource resource) {
-        resourceRepository.save(resource);
+    public Resource createResource(Resource resource) {
+        return resourceRepository.save(resource);
     }
 }
 
