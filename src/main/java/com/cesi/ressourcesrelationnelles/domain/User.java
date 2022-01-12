@@ -1,14 +1,20 @@
 package com.cesi.ressourcesrelationnelles.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class User {
-    private int id;
+    @Id
+    @GeneratedValue
+    private Long id;
     private String email;
     private String password;
     private String firstName;
     private String lastName;
 
-    public User(int id, String email, String password, String firstName, String lastName) {
-        this.id = id;
+    public User(String email, String password, String firstName, String lastName) {
         this.email = email;
         this.password = password;
         this.firstName = firstName;
@@ -16,11 +22,11 @@ public class User {
     }
     public User() {}
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

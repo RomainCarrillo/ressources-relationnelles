@@ -13,9 +13,9 @@ public class UsersController {
     @GetMapping("/users")
     public List<User> index() {
         List<User> userList = new ArrayList<>();
-        userList.add(new User(0,"alexandre.maindron@viacesi.fr", "123456789", "Alexandre", "MAINDRON"));
-        userList.add(new User(1,"albert@gmail.com", "123", "Albert", "CAMUS"));
-        userList.add(new User(2,"jacquie@gouv.fr", "15", "Jacques", "CHIRAC"));
+        userList.add(new User("alexandre.maindron@viacesi.fr", "123456789", "Alexandre", "MAINDRON"));
+        userList.add(new User("albert@gmail.com", "123", "Albert", "CAMUS"));
+        userList.add(new User("jacquie@gouv.fr", "15", "Jacques", "CHIRAC"));
         return userList;
     }
 }
