@@ -2,24 +2,34 @@ package com.cesi.ressourcesrelationnelles.domain;
 
 public class Resource {
 
-    private int ResourcesTypes;
-    private String ResourcesName;
+    private int resourcesTypes;
+    private String resourcesName;
     private int id;
 
+    public Resource(int resourcesTypes, String resourcesName, int id) {
+        this.resourcesTypes = resourcesTypes;
+        this.resourcesName = resourcesName;
+        this.id = id;
+    }
+
+    public Resource() {
+
+    }
+
     public String getResourcesName() {
-        return ResourcesName;
+        return resourcesName;
     }
 
     public void setResourcesName(String resourcesName) {
-        ResourcesName = resourcesName;
+        this.resourcesName = resourcesName;
     }
 
     public int getResourcesTypes() {
-        return ResourcesTypes;
+        return resourcesTypes;
     }
 
     public void setResourcesTypes(int resourcesTypes) {
-        ResourcesTypes = resourcesTypes;
+        this.resourcesTypes = resourcesTypes;
     }
 
     public int getId() {
