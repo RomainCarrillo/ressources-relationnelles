@@ -11,21 +11,21 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.util.Assert;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class CommentsControllerTest {
+class CommentsControllerTest {
 
     @Autowired
     private MockMvc mvc;
 
     @Test
-    public void getComments() throws Exception {
+    void getComments() throws Exception {
         MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.get("/comments").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andReturn();
@@ -34,7 +34,7 @@ public class CommentsControllerTest {
         List<Comment> responseCommentList = new ObjectMapper().readValue(contentAsString, new TypeReference<>() {
         });
 
-        Assert.notNull(responseCommentList);
-        Assert.notEmpty(responseCommentList);
+        assertNotNull(responseCommentList);
+        assertNotNull(responseCommentList);
     }
 }
