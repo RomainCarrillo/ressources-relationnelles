@@ -2,15 +2,21 @@ package com.cesi.ressourcesrelationnelles.features.comments;
 
 import com.cesi.ressourcesrelationnelles.domain.Comment;
 import com.cesi.ressourcesrelationnelles.exception.NotFoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
+
 @RestController
 public class CommentController {
+
     private final CommentService commentService;
+
+    Logger logger = LoggerFactory.getLogger(CommentController.class);
 
     public CommentController(CommentService commentService) {
         this.commentService = commentService;
@@ -26,7 +32,8 @@ public class CommentController {
         try {
             return commentService.getById(id);
         } catch (NotFoundException e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
+            logger.warn(e.getMessage() + id);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
         }
     }
 
