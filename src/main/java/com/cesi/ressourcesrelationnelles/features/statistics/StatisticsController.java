@@ -39,7 +39,7 @@ public class StatisticsController {
         statisticService.delete(id);
     }
 
-    @PutMapping("/users/{id}")
+    @PutMapping("/statistics/{id}")
     public Statistic updateSatisticById(@PathVariable long id, @RequestBody Statistic statistic){
         statistic.setId(id);
         return statisticService.update(statistic);
