@@ -1,6 +1,7 @@
 package com.cesi.ressourcesrelationnelles.features.comments;
 
 import com.cesi.ressourcesrelationnelles.domain.Comment;
+import com.cesi.ressourcesrelationnelles.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,11 +18,11 @@ public class CommentService {
         return commentRepository.findAll();
     }
 
-    public Comment getById(long id) {
-/*        Optional<Comment> commentOptional = commentRepository.findById(id);
-        if (commentOptional.isPresent()) {*/
-        return commentRepository.getById(id);
-        //     }
+    public Comment getById(long id) throws NotFoundException {
+        Optional<Comment> commentOptional = commentRepository.findById(id);
+        if (commentOptional.isPresent()) {
+            return commentOptional.get();
+        } else throw new NotFoundException("User not found");
     }
 
     public void createList(List<Comment> comments) {
