@@ -18,14 +18,25 @@ public class CommentController {
         return commentService.getList();
     }
 
+    @GetMapping("comments/{id}")
+    public Comment getCommentById(@PathVariable long id) {
+        return commentService.getById(id);
+    }
+
     @PostMapping("/comments")
     public Comment addComment(@RequestBody Comment comment) {
         return commentService.create(comment);
     }
 
-    @DeleteMapping("/comments")
-    public void deleteComment(@RequestBody Comment comment) {
-        commentService.delete(comment);
+    @PutMapping("/comments/{id}")
+    public void commentService(@RequestBody Comment comment, @PathVariable long id) {
+        commentService.update(comment, id);
+    }
+
+
+    @DeleteMapping("/comments/{id}")
+    public void deleteComment(@PathVariable long id) {
+        commentService.delete(id);
     }
 
 

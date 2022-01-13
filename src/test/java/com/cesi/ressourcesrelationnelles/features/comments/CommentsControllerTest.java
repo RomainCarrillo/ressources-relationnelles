@@ -42,4 +42,7 @@ class CommentsControllerTest {
         assertNotNull(responseCommentList);
         assertFalse(isEmpty(responseCommentList));
     }
+
+
+    //TODO add missing test methods delete, update, getbyid
 }
