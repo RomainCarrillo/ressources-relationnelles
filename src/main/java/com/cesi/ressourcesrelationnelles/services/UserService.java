@@ -1,5 +1,6 @@
 package com.cesi.ressourcesrelationnelles.services;
 
+import com.cesi.ressourcesrelationnelles.domain.Resource;
 import com.cesi.ressourcesrelationnelles.domain.User;
 import com.cesi.ressourcesrelationnelles.domain.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,5 +28,9 @@ public class UserService {
 
     public void deleteUser(long id){
         userRepository.deleteById(id);
+    }
+
+    public User updateUser(User user) {
+        return userRepository.save(user);
     }
 }
