@@ -1,15 +1,22 @@
 package com.cesi.ressourcesrelationnelles.domain;
 
-public class Statistic {
-    public int id;
-    public int nbVues;
-    public int id_ressource;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
-    public int getId() {
+@Entity
+public class Statistic {
+    @Id
+    @GeneratedValue
+    private long id;
+    private int nbVues;
+    private int id_ressource;
+
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -27,6 +34,10 @@ public class Statistic {
 
     public void setId_ressource(int id_ressource) {
         this.id_ressource = id_ressource;
+    }
+
+    public Statistic(){
+
     }
 
     public Statistic(int id, int idRessource, int nbVues) {
