@@ -19,12 +19,12 @@ public class UsersController {
         return userService.getlist();
     }
 
-    @PostMapping("/createuser")
+    @PostMapping("/users")
     public User createUser(@RequestBody User user){
         return userService.createUser(user);
     }
 
-    @DeleteMapping("/deleteuser/{id}")
+    @DeleteMapping("/users/{id}")
     public void deleteUser(@PathVariable long id){
         userService.deleteUser(id);
     }
