@@ -19,10 +19,8 @@ public class CommentService {
     }
 
     public Comment getById(long id) throws NotFoundException {
-        Optional<Comment> commentOptional = commentRepository.findById(id);
-        if (commentOptional.isPresent()) {
-            return commentOptional.get();
-        } else throw new NotFoundException("User not found");
+        return commentRepository.findById(id).orElseThrow(() ->
+                new NotFoundException("User not found : "));
     }
 
     public void createList(List<Comment> comments) {
