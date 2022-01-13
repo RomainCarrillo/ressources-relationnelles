@@ -23,5 +23,13 @@ public class ResourceService {
     public Resource createResource(Resource resource) {
         return resourceRepository.save(resource);
     }
+
+    public void delete(long id) {
+        resourceRepository.deleteById(id);
+    }
+
+    public Resource updateResource(Resource resource) {
+        return resourceRepository.save(resource);
+    }
 }
 
