@@ -44,5 +44,4 @@ class CommentsControllerTest {
     }
 
 
-    //TODO add missing test methods delete, update, getbyid
 }

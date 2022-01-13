@@ -14,15 +14,13 @@ import java.util.stream.Collectors;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class CommentsControllerIT {
+class CommentsControllerIT {
 
     @Autowired
     private TestRestTemplate template;
 
-    //TODO insérer un repository pour tester l'insertion de données et pas un false
-
     @Test
-    public void getAllComments() throws Exception {
+    void getAllComments() {
         ResponseEntity<Comment[]> responseEntity = template.getForEntity("/comments", Comment[].class);
         Comment[] commentsArray = responseEntity.getBody();
         List<Comment> commentList = Arrays.stream(commentsArray).collect(Collectors.toList());
