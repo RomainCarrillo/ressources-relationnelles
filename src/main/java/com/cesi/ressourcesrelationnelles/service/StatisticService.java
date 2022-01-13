@@ -22,5 +22,9 @@ public class StatisticService {
         return statisticRepository.save(statistic);
     }
 
+    public void delete(long statistic){ statisticRepository.deleteById(statistic); }
+
+    public Statistic update(Statistic statistic){ return statisticRepository.save(statistic);}
+
 
 }

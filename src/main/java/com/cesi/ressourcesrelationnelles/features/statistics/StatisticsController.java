@@ -2,10 +2,7 @@ package com.cesi.ressourcesrelationnelles.features.statistics;
 
 import com.cesi.ressourcesrelationnelles.domain.Statistic;
 import com.cesi.ressourcesrelationnelles.service.StatisticService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +34,16 @@ public class StatisticsController {
         return statisticService.create(stat);
     }
 
+    @DeleteMapping("/statistics/{id}")
+    public void deleteStatisticsById(@PathVariable long id){
+        statisticService.delete(id);
+    }
+
+    @PutMapping("/statistics/{id}")
+    public Statistic updateSatisticById(@PathVariable long id, @RequestBody Statistic statistic){
+        statistic.setId(id);
+        return statisticService.update(statistic);
+    }
 
 
 
