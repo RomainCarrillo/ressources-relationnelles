@@ -24,8 +24,15 @@ public class CommentService {
         return commentRepository.save(comment);
     }
 
-    public void delete(Comment comment) {
-        commentRepository.delete(comment);
+    public void delete(long id) {
+        commentRepository.delete(commentRepository.getById(id));
     }
 
+    public Comment update(Comment comment, long id) {
+        Comment modifiedComment = commentRepository.getById(id);
+        modifiedComment.setAuthor(comment.getAuthor());
+        modifiedComment.setTitle(comment.getTitle());
+        modifiedComment.setContent(comment.getContent());
+        return commentRepository.save(modifiedComment);
+    }
 }
