@@ -28,4 +28,5 @@ public class CommentsControllerIT {
         List<Comment> commentList = Arrays.stream(commentsArray).collect(Collectors.toList());
         assertTrue(commentList.isEmpty());
     }
+
 }

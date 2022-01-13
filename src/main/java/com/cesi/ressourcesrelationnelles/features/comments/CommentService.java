@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CommentService {
@@ -16,6 +17,13 @@ public class CommentService {
         return commentRepository.findAll();
     }
 
+    public Comment getById(long id) {
+/*        Optional<Comment> commentOptional = commentRepository.findById(id);
+        if (commentOptional.isPresent()) {*/
+        return commentRepository.getById(id);
+        //     }
+    }
+
     public void createList(List<Comment> comments) {
         commentRepository.saveAll(comments);
     }
@@ -25,14 +33,21 @@ public class CommentService {
     }
 
     public void delete(long id) {
-        commentRepository.delete(commentRepository.getById(id));
+        Optional<Comment> commentOptional = commentRepository.findById(id);
+        if (commentOptional.isPresent()) {
+            commentRepository.delete(commentRepository.getById(id));
+        }
     }
 
-    public Comment update(Comment comment, long id) {
-        Comment modifiedComment = commentRepository.getById(id);
-        modifiedComment.setAuthor(comment.getAuthor());
-        modifiedComment.setTitle(comment.getTitle());
-        modifiedComment.setContent(comment.getContent());
-        return commentRepository.save(modifiedComment);
+    public void update(Comment comment, long id) {
+        Optional<Comment> commentOptional = commentRepository.findById(id);
+        if (commentOptional.isPresent()) {
+            Comment modifiedComment = commentRepository.getById(id);
+            modifiedComment.setAuthor(comment.getAuthor());
+            modifiedComment.setTitle(comment.getTitle());
+            modifiedComment.setContent(comment.getContent());
+            commentRepository.save(modifiedComment);
+        }
     }
+
 }
