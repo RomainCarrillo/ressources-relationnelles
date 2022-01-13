@@ -24,10 +24,13 @@ import static org.springframework.util.CollectionUtils.isEmpty;
 class CommentsControllerTest {
 
     @Autowired
+    CommentRepository commentRepository;
+    @Autowired
     private MockMvc mvc;
 
     @Test
     void getComments() throws Exception {
+        commentRepository.save(new Comment());
         MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.get("/comments").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andReturn();
