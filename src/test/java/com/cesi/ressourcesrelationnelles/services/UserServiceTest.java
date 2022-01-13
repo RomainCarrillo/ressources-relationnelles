@@ -1,28 +1,26 @@
 package com.cesi.ressourcesrelationnelles.services;
 
 import com.cesi.ressourcesrelationnelles.domain.User;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
-@RunWith(SpringRunner.class)
+import static org.junit.jupiter.api.Assertions.*;
+
 @SpringBootTest
-public class UserServiceTest {
+class UserServiceTest {
 
     @Autowired
     private UserService userService;
 
     @Test
-    public void createUserTest() {
+    void createUserTest() {
         User user = new User();
         userService.createUser(user);
-        List<User> userList = userService.list();
-        Assert.assertNotNull(userList);
-        Assert.assertEquals(1, userList.size());
+        List<User> userList = userService.getlist();
+        assertNotNull(userList);
+        assertEquals(1, userList.size());
     }
 }
