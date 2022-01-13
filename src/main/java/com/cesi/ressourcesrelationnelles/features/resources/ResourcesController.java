@@ -2,10 +2,7 @@ package com.cesi.ressourcesrelationnelles.features.resources;
 
 import com.cesi.ressourcesrelationnelles.domain.Resource;
 import com.cesi.ressourcesrelationnelles.service.ResourceService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,5 +26,15 @@ public class ResourcesController {
         return resourceService.createResource(resource);
     }
 
-    
+
+    @DeleteMapping("/resources/{id}")
+    public void deleteResource(@PathVariable long id) {
+        resourceService.delete(id);
+    }
+
+    @PutMapping("/resources/{id}")
+    public Resource updateResource(@PathVariable long id, @RequestBody Resource resource) {
+        resource.setId(id);
+        return resourceService.updateResource(resource);
+    }
 }
