@@ -28,6 +28,11 @@ public class Comment {
         this.author = author;
     }
 
+    public Comment(String author, String title) {
+        this.setAuthor(author);
+        this.setTitle(title);
+    }
+
     public Long getId() {
         return id;
     }
