@@ -23,9 +23,9 @@ public class CommentController {
     }
 
     @GetMapping("/comments")
-    public List<Comment> getAllComments(@RequestParam(required = false) String author) {
-        if (author != null) {
-            return commentService.getList(author);
+    public List<Comment> getAllComments(@RequestParam(required = false) String author, String title) {
+        if (author != null || title != null) {
+            return commentService.getList(author, title);
         } else {
             return commentService.getList();
         }

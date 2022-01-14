@@ -26,6 +26,21 @@ public class CommentService {
         ).collect(Collectors.toList());
     }
 
+    public List<Comment> getList(String author, String title) {
+        List<Comment> commentList = commentRepository.findAll();
+        if (author != null) {
+            commentList = commentList.stream().filter(comment ->
+                    comment.getAuthor().equals(author)
+            ).collect(Collectors.toList());
+        }
+        if (title != null) {
+            commentList = commentList.stream().filter(comment ->
+                    comment.getTitle().equals(title)
+            ).collect(Collectors.toList());
+        }
+        return commentList;
+    }
+
     public Comment getById(long id) throws NotFoundException {
         return commentRepository.findById(id).orElseThrow(() ->
                 new NotFoundException("User not found : "));
@@ -44,6 +59,10 @@ public class CommentService {
         if (commentOptional.isPresent()) {
             commentRepository.delete(commentRepository.getById(id));
         }
+    }
+
+    public void deleteAll() {
+        commentRepository.deleteAll();
     }
 
     public void update(Comment comment, long id) {

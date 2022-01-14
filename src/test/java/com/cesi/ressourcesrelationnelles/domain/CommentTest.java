@@ -17,7 +17,6 @@ class CommentTest {
         commentList.add(comment);
 
         assertNotNull(commentList);
-        assertEquals(1L, comment.getId());
         assertEquals("Romain", comment.getAuthor());
         assertEquals("Super intéressant !", comment.getTitle());
         assertEquals("Ce document est très intéressant, merci pour le partage.", comment.getContent());
