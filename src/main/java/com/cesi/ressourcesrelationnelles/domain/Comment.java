@@ -9,7 +9,7 @@ public class Comment {
     @Id
     @GeneratedValue
     private Long id;
-
+    private Civility civility;
     private String author;
     private String title;
     private String content;
@@ -64,4 +64,13 @@ public class Comment {
     public void setContent(String content) {
         this.content = content;
     }
+
+    public Civility getCivility() {
+        return civility;
+    }
+
+    public void setCivility(Civility civility) {
+        this.civility = civility;
+    }
 }
+
