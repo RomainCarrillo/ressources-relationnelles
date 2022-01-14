@@ -21,6 +21,7 @@ class CommentServiceTest {
     @Autowired
     private CommentService commentService;
 
+
     @Test
     void createCommentListTest() {
         commentRepository.deleteAll();
@@ -42,7 +43,7 @@ class CommentServiceTest {
     }
 
     @Test
-    void findUsersByAuthor() {
+    void findUsersByAuthorTest() {
         commentRepository.deleteAll();
         // given
         commentService.create(new Comment("Paul", "Comment 1"));
@@ -56,7 +57,7 @@ class CommentServiceTest {
     }
 
     @Test
-    void findUsersByAuthorNotFind() {
+    void findUsersByAuthorNotFindTest() {
         commentRepository.deleteAll();
         // given
         commentService.create(new Comment("Paul", "Comment 1"));
@@ -69,7 +70,7 @@ class CommentServiceTest {
     }
 
     @Test
-    void findUsersByTitle() {
+    void findUsersByTitleTest() {
         commentRepository.deleteAll();
         // given
         commentService.create(new Comment("Paul", "Comment 1"));
@@ -82,7 +83,7 @@ class CommentServiceTest {
     }
 
     @Test
-    void findUsersByTitleNotFind() {
+    void findUsersByTitleNotFindTest() {
         commentRepository.deleteAll();
         // given
         commentService.create(new Comment("Paul", "Comment 1"));
@@ -95,7 +96,7 @@ class CommentServiceTest {
     }
 
     @Test
-    void findUsersByAuthorAndTitle() {
+    void findUsersByAuthorAndTitleTest() {
         commentRepository.deleteAll();
         // given
         commentService.create(new Comment("Paul", "Comment 1"));
@@ -110,7 +111,7 @@ class CommentServiceTest {
     }
 
     @Test
-    void findUsersByAuthorAndTitleNotFind() {
+    void findUsersByAuthorAndTitleNotFindTest() {
         commentRepository.deleteAll();
         // given
         commentService.create(new Comment("Paul", "Comment 1"));
