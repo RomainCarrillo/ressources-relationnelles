@@ -23,9 +23,14 @@ public class CommentController {
     }
 
     @GetMapping("/comments")
-    public List<Comment> getAllComments() {
-        return commentService.getList();
+    public List<Comment> getAllComments(@RequestParam(required = false) String author) {
+        if (author != null) {
+            return commentService.getList(author);
+        } else {
+            return commentService.getList();
+        }
     }
+
 
     @GetMapping("comments/{id}")
     public Comment getCommentById(@PathVariable long id) {

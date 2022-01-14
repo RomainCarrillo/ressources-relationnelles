@@ -9,7 +9,7 @@ public class Comment {
     @Id
     @GeneratedValue
     private Long id;
-    
+
     private String author;
     private String title;
     private String content;
@@ -22,6 +22,10 @@ public class Comment {
         this.setAuthor(author);
         this.setTitle(title);
         this.setContent(content);
+    }
+
+    public Comment(String author) {
+        this.author = author;
     }
 
     public Long getId() {

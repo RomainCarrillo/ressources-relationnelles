@@ -37,6 +37,19 @@ class CommentServiceTest {
         assertEquals(expectedCommentList.size(), actualCommentList.size());
     }
 
+    @Test
+    void findUsersByAuthor() {
+        // given
+        commentService.create(new Comment("Paul"));
+        commentService.create(new Comment("Romain"));
+        // when
+        List<Comment> comments = commentService.getList("Romain");
+        // then
+        assertNotNull(comments);
+        assertEquals(1, comments.size());
+        assertEquals("Romain", comments.get(0).getAuthor());
+    }
+
 
     @Test
     void findCommentByIdTest() throws Exception {

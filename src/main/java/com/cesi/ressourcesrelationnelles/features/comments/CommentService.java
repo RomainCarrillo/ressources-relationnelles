@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class CommentService {
@@ -16,6 +17,13 @@ public class CommentService {
 
     public List<Comment> getList() {
         return commentRepository.findAll();
+    }
+
+    public List<Comment> getList(String author) {
+        List<Comment> commentList = commentRepository.findAll();
+        return commentList.stream().filter(comment ->
+                comment.getAuthor().equals(author)
+        ).collect(Collectors.toList());
     }
 
     public Comment getById(long id) throws NotFoundException {
