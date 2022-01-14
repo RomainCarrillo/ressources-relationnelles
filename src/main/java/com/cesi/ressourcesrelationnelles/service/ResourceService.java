@@ -6,6 +6,7 @@ import com.cesi.ressourcesrelationnelles.repository.ResourceRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ResourceService {
@@ -21,6 +22,7 @@ public class ResourceService {
     }
 
     public Resource createResource(Resource resource) {
+
         return resourceRepository.save(resource);
     }
 
@@ -30,6 +32,10 @@ public class ResourceService {
 
     public Resource updateResource(Resource resource) {
         return resourceRepository.save(resource);
+    }
+
+    public Optional<Resource> getById(long id) {
+        return resourceRepository.findById(id);
     }
 }
 

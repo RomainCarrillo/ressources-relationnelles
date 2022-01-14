@@ -5,6 +5,7 @@ import com.cesi.ressourcesrelationnelles.service.ResourceService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class ResourcesController {
@@ -19,6 +20,15 @@ public class ResourcesController {
     public List<Resource> getAllResources() {
         return resourceService.list();
 
+    }
+
+    @GetMapping("/resources/{id}")
+    public Resource getResourceById(@PathVariable("id") Long id) {
+        Optional<Resource> resource = resourceService.getById(id);
+        if (resourceService.getById(id).isPresent()) {
+            return resource.get();
+        }
+        return new Resource();
     }
 
     @PostMapping("/resources")
@@ -37,4 +47,6 @@ public class ResourcesController {
         resource.setId(id);
         return resourceService.updateResource(resource);
     }
+
+
 }
