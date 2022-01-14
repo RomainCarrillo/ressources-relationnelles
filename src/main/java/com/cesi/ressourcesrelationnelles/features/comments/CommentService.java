@@ -61,9 +61,6 @@ public class CommentService {
         }
     }
 
-    public void deleteAll() {
-        commentRepository.deleteAll();
-    }
 
     public void update(Comment comment, long id) {
         Optional<Comment> commentOptional = commentRepository.findById(id);

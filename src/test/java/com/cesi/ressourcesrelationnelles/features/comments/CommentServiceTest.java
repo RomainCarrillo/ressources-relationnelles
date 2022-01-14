@@ -16,11 +16,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class CommentServiceTest {
 
     @Autowired
+    private CommentRepository commentRepository;
+
+    @Autowired
     private CommentService commentService;
 
     @Test
     void createCommentListTest() {
-        commentService.deleteAll();
+        commentRepository.deleteAll();
         List<Comment> expectedCommentList = new ArrayList<>();
         Comment comment1 = new Comment(1L, "Romain", "Comment 1", "First Comment");
         Comment comment2 = new Comment(2L, "Toto", "Comment 2", "Second Comment");
@@ -40,7 +43,7 @@ class CommentServiceTest {
 
     @Test
     void findUsersByAuthor() {
-        commentService.deleteAll();
+        commentRepository.deleteAll();
         // given
         commentService.create(new Comment("Paul", "Comment 1"));
         commentService.create(new Comment("Romain", "Comment 2"));
@@ -54,7 +57,7 @@ class CommentServiceTest {
 
     @Test
     void findUsersByAuthorNotFind() {
-        commentService.deleteAll();
+        commentRepository.deleteAll();
         // given
         commentService.create(new Comment("Paul", "Comment 1"));
         commentService.create(new Comment("Romain", "Comment 2"));
@@ -67,7 +70,7 @@ class CommentServiceTest {
 
     @Test
     void findUsersByTitle() {
-        commentService.deleteAll();
+        commentRepository.deleteAll();
         // given
         commentService.create(new Comment("Paul", "Comment 1"));
         commentService.create(new Comment("Romain", "Comment 2"));
@@ -80,7 +83,7 @@ class CommentServiceTest {
 
     @Test
     void findUsersByTitleNotFind() {
-        commentService.deleteAll();
+        commentRepository.deleteAll();
         // given
         commentService.create(new Comment("Paul", "Comment 1"));
         commentService.create(new Comment("Romain", "Comment 2"));
@@ -93,7 +96,7 @@ class CommentServiceTest {
 
     @Test
     void findUsersByAuthorAndTitle() {
-        commentService.deleteAll();
+        commentRepository.deleteAll();
         // given
         commentService.create(new Comment("Paul", "Comment 1"));
         commentService.create(new Comment("Romain", "Comment 2"));
@@ -108,7 +111,7 @@ class CommentServiceTest {
 
     @Test
     void findUsersByAuthorAndTitleNotFind() {
-        commentService.deleteAll();
+        commentRepository.deleteAll();
         // given
         commentService.create(new Comment("Paul", "Comment 1"));
         commentService.create(new Comment("Romain", "Comment 2"));
@@ -125,7 +128,7 @@ class CommentServiceTest {
 
     @Test
     void findCommentByIdTest() throws Exception {
-        commentService.deleteAll();
+        commentRepository.deleteAll();
         Comment testComment = commentService.create(new Comment());
         Comment actualComment = commentService.getById(testComment.getId());
         assertNotNull(actualComment);
@@ -133,7 +136,7 @@ class CommentServiceTest {
 
     @Test
     void findCommentByIdNotExistingTest() {
-        commentService.deleteAll();
+        commentRepository.deleteAll();
         assertThrowsExactly(NotFoundException.class, () -> {
             Comment testComment = commentService.create(new Comment());
             Comment actualComment = commentService.getById(-27);

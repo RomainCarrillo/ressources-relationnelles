@@ -23,7 +23,7 @@ public class CommentController {
     }
 
     @GetMapping("/comments")
-    public List<Comment> getAllComments(@RequestParam(required = false) String author, String title) {
+    public List<Comment> getAllComments(@RequestParam(required = false) String author, @RequestParam(required = false) String title) {
         if (author != null || title != null) {
             return commentService.getList(author, title);
         } else {
@@ -37,7 +37,7 @@ public class CommentController {
         try {
             return commentService.getById(id);
         } catch (NotFoundException e) {
-            logger.warn(e.getMessage() + id);
+            logger.warn("{}{}", e.getMessage(), id);
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
         }
     }
