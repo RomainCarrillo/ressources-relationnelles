@@ -1,12 +1,14 @@
-package com.cesi.ressourcesrelationnelles.domain;
+package java.com.cesi.ressourcesrelationnelles.test.domain;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import org.junit.jupiter.api.Test;
+
+import com.cesi.ressourcesrelationnelles.domain.Comment;
 
 class CommentTest {
 
