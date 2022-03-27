@@ -4,14 +4,29 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
 @Entity
+@Document(collection = "User")
 public class User {
+
     @Id
     @GeneratedValue
     private Long id;
+
+    @Indexed(unique = true)
+    @Field(value = "email")
     private String email;
+
+    @Field(value = "password")
     private String password;
+
+    @Field(value = "firstName")
     private String firstName;
+
+    @Field(value = "lastName")
     private String lastName;
 
     public User(String email, String password, String firstName, String lastName) {
@@ -20,6 +35,7 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
     }
+
     public User() {}
 
     public Long getId() {

@@ -1,6 +1,5 @@
 package com.cesi.ressourcesrelationnelles.features.users;
 
-import com.cesi.ressourcesrelationnelles.domain.Resource;
 import com.cesi.ressourcesrelationnelles.domain.User;
 import com.cesi.ressourcesrelationnelles.services.UserService;
 import org.springframework.web.bind.annotation.*;
@@ -21,12 +20,12 @@ public class UsersController {
     }
 
     @PostMapping("/users")
-    public User createUser(@RequestBody User user){
+    public User createUser(@RequestBody User user) {
         return userService.createUser(user);
     }
 
     @DeleteMapping("/users/{id}")
-    public void deleteUser(@PathVariable long id){
+    public void deleteUser(@PathVariable long id) {
         userService.deleteUser(id);
     }
 
