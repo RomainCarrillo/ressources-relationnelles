@@ -1,7 +1,7 @@
 package com.cesi.ressourcesrelationnelles.features.users;
 
 import com.cesi.ressourcesrelationnelles.domain.User;
-import com.cesi.ressourcesrelationnelles.services.UserService;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 

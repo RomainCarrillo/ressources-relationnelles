@@ -1,8 +1,8 @@
-package com.cesi.ressourcesrelationnelles.service;
+package com.cesi.ressourcesrelationnelles.features.resources;
 
 
 import com.cesi.ressourcesrelationnelles.domain.Resource;
-import com.cesi.ressourcesrelationnelles.repository.ResourceRepository;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;

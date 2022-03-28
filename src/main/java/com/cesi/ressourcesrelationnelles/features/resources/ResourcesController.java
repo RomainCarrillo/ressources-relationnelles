@@ -1,7 +1,7 @@
 package com.cesi.ressourcesrelationnelles.features.resources;
 
 import com.cesi.ressourcesrelationnelles.domain.Resource;
-import com.cesi.ressourcesrelationnelles.service.ResourceService;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

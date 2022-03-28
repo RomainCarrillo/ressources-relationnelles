@@ -1,12 +1,11 @@
-package com.cesi.ressourcesrelationnelles.services;
+package com.cesi.ressourcesrelationnelles.features.users;
 
-import com.cesi.ressourcesrelationnelles.domain.Resource;
-import com.cesi.ressourcesrelationnelles.domain.User;
-import com.cesi.ressourcesrelationnelles.domain.repository.UserRepository;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.cesi.ressourcesrelationnelles.domain.User;
 
 @Service
 public class UserService {

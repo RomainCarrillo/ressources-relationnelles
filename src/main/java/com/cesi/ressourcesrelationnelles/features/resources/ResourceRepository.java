@@ -1,4 +1,4 @@
-package com.cesi.ressourcesrelationnelles.repository;
+package com.cesi.ressourcesrelationnelles.features.resources;
 
 import com.cesi.ressourcesrelationnelles.domain.Resource;
 import org.springframework.data.jpa.repository.JpaRepository;

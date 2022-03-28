@@ -1,7 +1,7 @@
-package com.cesi.ressourcesrelationnelles.service;
+package com.cesi.ressourcesrelationnelles.features.statistics;
 
 import com.cesi.ressourcesrelationnelles.domain.Statistic;
-import com.cesi.ressourcesrelationnelles.repository.StatisticRepository;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;

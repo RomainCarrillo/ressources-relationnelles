@@ -1,4 +1,4 @@
-package com.cesi.ressourcesrelationnelles.repository;
+package com.cesi.ressourcesrelationnelles.features.users;
 
 import com.cesi.ressourcesrelationnelles.domain.User;
 import org.springframework.data.mongodb.repository.MongoRepository;

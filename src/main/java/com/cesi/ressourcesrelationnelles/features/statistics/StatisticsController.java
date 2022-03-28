@@ -1,7 +1,7 @@
 package com.cesi.ressourcesrelationnelles.features.statistics;
 
 import com.cesi.ressourcesrelationnelles.domain.Statistic;
-import com.cesi.ressourcesrelationnelles.service.StatisticService;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;

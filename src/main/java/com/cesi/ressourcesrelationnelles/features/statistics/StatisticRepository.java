@@ -1,4 +1,4 @@
-package com.cesi.ressourcesrelationnelles.repository;
+package com.cesi.ressourcesrelationnelles.features.statistics;
 
 import com.cesi.ressourcesrelationnelles.domain.Statistic;
 import org.springframework.data.jpa.repository.JpaRepository;
