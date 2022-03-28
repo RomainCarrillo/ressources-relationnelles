@@ -1,9 +1,10 @@
 package com.cesi.ressourcesrelationnelles.features.statistics;
 
-import com.cesi.ressourcesrelationnelles.domain.Statistic;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
+import com.cesi.ressourcesrelationnelles.domain.Statistic;
+
 @Repository
-public interface StatisticRepository extends JpaRepository<Statistic, Long> {
+public interface StatisticRepository extends MongoRepository<Statistic, Long> {
 }

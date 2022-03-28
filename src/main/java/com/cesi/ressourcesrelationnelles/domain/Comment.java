@@ -1,17 +1,16 @@
 package com.cesi.ressourcesrelationnelles.domain;
 
-import javax.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity(name = "COMMENT")
+@Document(collection = "Comment")
 public class Comment {
     @Id
-    @GeneratedValue
     private Long id;
     private String author;
     private String title;
     private String content;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private CommentType commentType;
+
 
     public Comment() {
     }
@@ -23,14 +22,6 @@ public class Comment {
         this.setContent(content);
     }
 
-    public Comment(Long id, String author, String title, String content, CommentType commentType) {
-        this.setId(id);
-        this.setAuthor(author);
-        this.setTitle(title);
-        this.setContent(content);
-        this.setCommentType(commentType);
-    }
-
     public Comment(String author) {
         this.author = author;
     }
@@ -38,14 +29,6 @@ public class Comment {
     public Comment(String author, String title) {
         this.setAuthor(author);
         this.setTitle(title);
-    }
-
-    public CommentType getCommentType() {
-        return commentType;
-    }
-
-    public void setCommentType(CommentType commentType) {
-        this.commentType = commentType;
     }
 
     public Long getId() {

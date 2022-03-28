@@ -1,13 +1,12 @@
 package com.cesi.ressourcesrelationnelles.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+@Document(collection = "Statistic")
 public class Statistic {
-    @Id
-    @GeneratedValue
+
+	@Id
     private long id;
     private int nbVues;
     private int id_ressource;

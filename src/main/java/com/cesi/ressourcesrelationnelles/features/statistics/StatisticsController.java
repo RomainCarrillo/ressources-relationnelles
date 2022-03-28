@@ -1,49 +1,43 @@
 package com.cesi.ressourcesrelationnelles.features.statistics;
 
-import com.cesi.ressourcesrelationnelles.domain.Statistic;
-
-import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.cesi.ressourcesrelationnelles.domain.Statistic;
 
 @RestController
 public class StatisticsController {
-    private StatisticService statisticService;
 
-    public StatisticsController(StatisticService statService){
-        this.statisticService = statService;
-    }
+	
+	private StatisticRepository statisticRepository;
 
-    //@GetMapping("/statistics")
-    //public ArrayList<Statistic> getALlStatistics() {
-    //    ArrayList<Statistic> listStats = new ArrayList<>();
-    //    listStats.add(new Statistic(1, 1, 10));
-    //    listStats.add(new Statistic(2, 2, 100));
-    //    listStats.add(new Statistic(10, 15, 1000));
-    //    return listStats;
-    //}
 
     @GetMapping("/statistics")
     public List<Statistic> getAllStatistics(){
-        return statisticService.liste();
+        return statisticRepository.findAll();
     }
 
     @PostMapping("/statistics")
     public Statistic createStatistic(@RequestBody Statistic stat){
-        return statisticService.create(stat);
+        return statisticRepository.insert(stat);
     }
 
     @DeleteMapping("/statistics/{id}")
     public void deleteStatisticsById(@PathVariable long id){
-        statisticService.delete(id);
+        statisticRepository.deleteById(id);
     }
 
-    @PutMapping("/statistics/{id}")
-    public Statistic updateSatisticById(@PathVariable long id, @RequestBody Statistic statistic){
-        statistic.setId(id);
-        return statisticService.update(statistic);
-    }
+//    @PutMapping("/statistics/{id}")
+//    public Statistic updateSatisticById(@PathVariable long id, @RequestBody Statistic statistic){
+//        statistic.setId(id);
+//        return statisticRepository.update(statistic);
+//    }
 
 
 

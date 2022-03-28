@@ -1,19 +1,14 @@
 package com.cesi.ressourcesrelationnelles.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-@Entity
 @Document(collection = "User")
 public class User {
 
     @Id
-    @GeneratedValue
     private Long id;
 
     @Indexed(unique = true)

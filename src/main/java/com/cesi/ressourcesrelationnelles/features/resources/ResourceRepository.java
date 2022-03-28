@@ -1,10 +1,11 @@
 package com.cesi.ressourcesrelationnelles.features.resources;
 
-import com.cesi.ressourcesrelationnelles.domain.Resource;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
+import com.cesi.ressourcesrelationnelles.domain.Resource;
+
 @Repository
-public interface ResourceRepository extends JpaRepository<Resource, Long> {
+public interface ResourceRepository extends MongoRepository<Resource, Long> {
     
 }
