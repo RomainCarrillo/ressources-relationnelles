@@ -2,10 +2,12 @@ package com.cesi.ressourcesrelationnelles.features.users;
 
 import com.cesi.ressourcesrelationnelles.domain.User;
 import com.cesi.ressourcesrelationnelles.services.UserService;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Controller
 @RestController
 public class UsersController {
     private UserService userService;
@@ -35,3 +37,7 @@ public class UsersController {
         return userService.updateUser(user);
     }
 }
+
+
+
+
