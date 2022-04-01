@@ -1,4 +1,4 @@
-package com.cesi.ressourcesrelationnelles.configuration;
+package com.cesi.ressourcesrelationnelles.authentification;
 
 import java.util.HashMap;
 

@@ -1,4 +1,4 @@
-package com.cesi.ressourcesrelationnelles.configuration;
+package com.cesi.ressourcesrelationnelles.authentification;
 
 import java.util.Collection;
 import java.util.List;
@@ -9,6 +9,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public class CurrentUser implements UserDetails{
 
+
+	/**
+	 * Auto implemented by UserDetails
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private String userName;
 

@@ -1,4 +1,4 @@
-package com.cesi.ressourcesrelationnelles.configuration;
+package com.cesi.ressourcesrelationnelles.authentification;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -23,7 +23,6 @@ public class CurrentUserService implements UserDetailsService {
 		if (currentUser == null) {
 			throw new UsernameNotFoundException("User not found by name : " + username);
 		}
-		
 		return currentUser;
 	}
 
