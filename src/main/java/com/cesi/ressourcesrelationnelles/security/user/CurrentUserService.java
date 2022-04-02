@@ -1,7 +1,6 @@
-package com.cesi.ressourcesrelationnelles.authentification;
+package com.cesi.ressourcesrelationnelles.security.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -18,7 +17,7 @@ public class CurrentUserService implements UserDetailsService {
 	}
 
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	public CurrentUser loadUserByUsername(String username) throws UsernameNotFoundException {
 		final CurrentUser currentUser = repository.findUserByName(username);
 		if (currentUser == null) {
 			throw new UsernameNotFoundException("User not found by name : " + username);

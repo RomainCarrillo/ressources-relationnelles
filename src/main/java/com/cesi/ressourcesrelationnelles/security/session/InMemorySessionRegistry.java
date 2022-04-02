@@ -1,4 +1,4 @@
-package com.cesi.ressourcesrelationnelles.session;
+package com.cesi.ressourcesrelationnelles.security.session;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
@@ -27,11 +27,11 @@ public class InMemorySessionRegistry {
 		final String sessionId = generateSessionId();
 		SESSIONS.put(sessionId, username);
 		return sessionId;
-		
 	}
 	
-	// https://www.youtube.com/watch?v=XDJYHAcazWE&list=PLXy8DQl3058N9wAl7aWVXg6btgrSe97jR&index=3
-	// 5:43
+	public String getUsernameForSession(final String sessionId) {
+		return SESSIONS.get(sessionId);
+	}
 	
 	private String generateSessionId() {
 		return new String(
