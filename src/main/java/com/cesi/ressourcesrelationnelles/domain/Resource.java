@@ -1,21 +1,20 @@
 package com.cesi.ressourcesrelationnelles.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+@Document(collection = "Resource")
 public class Resource {
 
     @Id
-    @GeneratedValue
-    private long id;
+    private ObjectId id;
     private String resourcesName;
 
     private int resourcesTypes;
 
 
-    public Resource(int resourcesTypes, String resourcesName, int id) {
+    public Resource(int resourcesTypes, String resourcesName, ObjectId id) {
         this.resourcesTypes = resourcesTypes;
         this.resourcesName = resourcesName;
         this.id = id;
@@ -41,11 +40,11 @@ public class Resource {
         this.resourcesTypes = resourcesTypes;
     }
 
-    public long getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 }

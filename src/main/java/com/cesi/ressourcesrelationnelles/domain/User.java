@@ -1,17 +1,28 @@
 package com.cesi.ressourcesrelationnelles.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
-@Entity
+@Document(collection = "users")
 public class User {
+
     @Id
-    @GeneratedValue
-    private Long id;
+    private ObjectId id;
+
+    @Indexed(unique = true)
+    @Field(value = "email")
     private String email;
+
+    @Field(value = "password")
     private String password;
+
+    @Field(value = "firstName")
     private String firstName;
+
+    @Field(value = "lastName")
     private String lastName;
 
     public User(String email, String password, String firstName, String lastName) {
@@ -20,13 +31,14 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
     }
+
     public User() {}
 
-    public Long getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 

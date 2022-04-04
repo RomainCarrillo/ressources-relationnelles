@@ -1,31 +1,34 @@
 package com.cesi.ressourcesrelationnelles.features.resources;
 
-import com.cesi.ressourcesrelationnelles.domain.Resource;
-import com.cesi.ressourcesrelationnelles.service.ResourceService;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.cesi.ressourcesrelationnelles.domain.Resource;
 
 @RestController
 public class ResourcesController {
 
-    private final ResourceService resourceService;
-
-    public ResourcesController(ResourceService resourceService) {
-        this.resourceService = resourceService;
-    }
+	@Autowired
+    private ResourceRepository ressourceRepository;
 
     @GetMapping("/resources")
     public List<Resource> getAllResources() {
-        return resourceService.list();
+        return ressourceRepository.findAll();
 
     }
 
     @GetMapping("/resources/{id}")
     public Resource getResourceById(@PathVariable("id") Long id) {
-        Optional<Resource> resource = resourceService.getById(id);
-        if (resourceService.getById(id).isPresent()) {
+        Optional<Resource> resource = ressourceRepository.findById(id);
+        if (resource.isPresent()) {
             return resource.get();
         }
         return new Resource();
@@ -33,20 +36,20 @@ public class ResourcesController {
 
     @PostMapping("/resources")
     public Resource createResource(@RequestBody Resource resource) {
-        return resourceService.createResource(resource);
+        return ressourceRepository.insert(resource);
     }
 
 
     @DeleteMapping("/resources/{id}")
     public void deleteResource(@PathVariable long id) {
-        resourceService.delete(id);
+        ressourceRepository.deleteById(id);
     }
 
-    @PutMapping("/resources/{id}")
-    public Resource updateResource(@PathVariable long id, @RequestBody Resource resource) {
-        resource.setId(id);
-        return resourceService.updateResource(resource);
-    }
+//    @PutMapping("/resources/{id}")
+//    public Resource updateResource(@PathVariable long id, @RequestBody Resource resource) {
+//        resource.setId(id);
+//        return ressourceRepository.updateResource(resource);
+//    }
 
 
 }

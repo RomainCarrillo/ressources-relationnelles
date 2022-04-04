@@ -1,4 +1,4 @@
-package com.cesi.ressourcesrelationnelles.features.comments;
+package java.com.cesi.ressourcesrelationnelles.test.features.comments;
 
 import com.cesi.ressourcesrelationnelles.domain.Comment;
 import com.cesi.ressourcesrelationnelles.exception.NotFoundException;

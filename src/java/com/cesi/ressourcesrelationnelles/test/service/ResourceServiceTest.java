@@ -1,4 +1,4 @@
-package com.cesi.ressourcesrelationnelles.service;
+package java.com.cesi.ressourcesrelationnelles.test.service;
 
 import com.cesi.ressourcesrelationnelles.domain.Resource;
 import org.junit.jupiter.api.Test;
