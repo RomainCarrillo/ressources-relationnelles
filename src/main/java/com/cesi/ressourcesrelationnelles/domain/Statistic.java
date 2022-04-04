@@ -1,5 +1,6 @@
 package com.cesi.ressourcesrelationnelles.domain;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -7,15 +8,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Statistic {
 
 	@Id
-    private long id;
+    private ObjectId id;
     private int nbVues;
     private int id_ressource;
 
-    public long getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 
@@ -39,7 +40,7 @@ public class Statistic {
 
     }
 
-    public Statistic(int id, int idRessource, int nbVues) {
+    public Statistic(ObjectId id, int idRessource, int nbVues) {
         this.id = id;
         this.id_ressource = idRessource;
         this.nbVues = nbVues;
