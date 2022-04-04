@@ -19,14 +19,16 @@ public class UserInMemoryRepository {
 
 	private static final HashMap<String, CurrentUser> REGISTRED_USERS = new HashMap<>(2);
 	
+	//Les mots de passe doivent être stockés DEJA HASCHES avec bcrypt
+	
 	@PostConstruct
 	private void setUpUsers() {
 		REGISTRED_USERS.put("user", buildCurrentUser(
 				"user",
-				"user123"));
+				"$2a$10$4EvCE3wPMBPYEV/FA8B.3e1mrlCGaVuq.cO0x0fmrt198H61q/dFG")); //"user1"
 		REGISTRED_USERS.put("admin", buildCurrentUser(
 				"admin",
-				"admin123"));
+				"$2y$10$GB/cpo7FbfPrx5uVFjUnEeJrsk8drXtIFJaoCh3SapGcyuK3vOXyS")); //"admin"
 	}
 	
 	

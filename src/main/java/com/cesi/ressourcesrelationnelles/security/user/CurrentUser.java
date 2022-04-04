@@ -15,7 +15,7 @@ public class CurrentUser implements UserDetails{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private String userName;
+	private String username;
 
 	private String password;
 	
@@ -31,7 +31,7 @@ public class CurrentUser implements UserDetails{
 
 	@Override
 	public String getUsername() {
-		return userName;
+		return username;
 	}
 
 	@Override
@@ -54,8 +54,8 @@ public class CurrentUser implements UserDetails{
 		return true;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUserName(String username) {
+		this.username = username;
 	}
 
 	public void setPassword(String password) {

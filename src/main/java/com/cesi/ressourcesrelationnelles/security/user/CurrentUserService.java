@@ -12,7 +12,6 @@ public class CurrentUserService implements UserDetailsService {
 	
 	@Autowired
 	public CurrentUserService(UserInMemoryRepository repository) {
-		super();
 		this.repository = repository;
 	}
 
