@@ -15,7 +15,7 @@ public class CurrentUser implements UserDetails{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private String username;
+	private String userName;
 
 	private String password;
 	
@@ -31,8 +31,9 @@ public class CurrentUser implements UserDetails{
 
 	@Override
 	public String getUsername() {
-		return username;
+		return userName;
 	}
+	
 
 	@Override
 	public boolean isAccountNonExpired() {
@@ -54,12 +55,13 @@ public class CurrentUser implements UserDetails{
 		return true;
 	}
 
-	public void setUserName(String username) {
-		this.username = username;
+	public void setUsername(String userName) {
+		this.userName = userName;
 	}
 
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 
 }

@@ -21,13 +21,15 @@ public class UserInMemoryRepository {
 	
 	//Les mots de passe doivent être stockés DEJA HASCHES avec bcrypt
 	
+	//TODO ATTENTION les username sont des mails saisis en string à voir pour changer le nom de la varaible si utile...
+	
 	@PostConstruct
 	private void setUpUsers() {
-		REGISTRED_USERS.put("user", buildCurrentUser(
-				"user",
+		REGISTRED_USERS.put("user@user.fr", buildCurrentUser(
+				"user@user.fr",
 				"$2a$10$4EvCE3wPMBPYEV/FA8B.3e1mrlCGaVuq.cO0x0fmrt198H61q/dFG")); //"user1"
-		REGISTRED_USERS.put("admin", buildCurrentUser(
-				"admin",
+		REGISTRED_USERS.put("admin@admin.fr", buildCurrentUser(
+				"admin@admin.fr",
 				"$2y$10$GB/cpo7FbfPrx5uVFjUnEeJrsk8drXtIFJaoCh3SapGcyuK3vOXyS")); //"admin"
 	}
 	
@@ -39,7 +41,7 @@ public class UserInMemoryRepository {
 	
 	private CurrentUser buildCurrentUser(String username, String password) {
 		final CurrentUser currentUser = new CurrentUser();
-		currentUser.setUserName(username);
+		currentUser.setUsername(username);
 		currentUser.setPassword(password);
 		
 		return currentUser;
