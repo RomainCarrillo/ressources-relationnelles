@@ -18,6 +18,7 @@ public class ResourceController {
     private ResourceRepository resourceRepository;
 
     @GetMapping("/resource")
+    @CrossOrigin("*")
     public ResponseEntity<Resource> getResource(@RequestParam String id) {
         Optional<Resource> resource;
         resource = resourceRepository.findById(id);
@@ -25,6 +26,7 @@ public class ResourceController {
     }
 
     @GetMapping("/resources")
+    @CrossOrigin("*")
     public ResponseEntity<List<Resource>> getResources(@RequestParam(required = false) Long resourceType, @RequestParam(required = false) String creatorId) {
         if(resourceType != null || creatorId != null){
             List<Resource> resourceList = null;
@@ -45,6 +47,7 @@ public class ResourceController {
     }
 
     @PostMapping("/createResource")
+    @CrossOrigin("*")
     public ResponseEntity<Resource> createResource(@RequestBody Resource resource) {
         try {
             Resource _resource = resourceRepository.save(resource);
@@ -55,6 +58,7 @@ public class ResourceController {
     }
 
     @DeleteMapping("/deleteResource")
+    @CrossOrigin("*")
     public ResponseEntity<HttpStatus> deleteResource(@RequestParam String id) {
         try {
             resourceRepository.deleteById(id);

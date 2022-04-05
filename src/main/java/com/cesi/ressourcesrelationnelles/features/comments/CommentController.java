@@ -18,6 +18,7 @@ public class CommentController {
     private CommentRepository commentRepository;
 
     @GetMapping("/comment")
+    @CrossOrigin("*")
     public ResponseEntity<Comment> getComment(@RequestParam String id) {
         Optional<Comment> comment;
         comment = commentRepository.findById(id);
@@ -25,6 +26,7 @@ public class CommentController {
     }
 
     @GetMapping("/comments")
+    @CrossOrigin("*")
     public ResponseEntity<List<Comment>> getComments(@RequestParam(required = false) String resourceId) {
         if(resourceId != null){
             List<Comment> commentList = commentRepository.findCommentsByResource(resourceId);
@@ -38,6 +40,7 @@ public class CommentController {
     }
 
     @PostMapping("/createComment")
+    @CrossOrigin("*")
     public ResponseEntity<Comment> createComment(@RequestBody Comment comment) {
         try {
             Comment _comment = commentRepository.save(comment);
@@ -48,6 +51,7 @@ public class CommentController {
     }
 
     @DeleteMapping("/deleteComment")
+    @CrossOrigin("*")
     public ResponseEntity<HttpStatus> deleteComment(@RequestParam String id) {
         try {
             commentRepository.deleteById(id);

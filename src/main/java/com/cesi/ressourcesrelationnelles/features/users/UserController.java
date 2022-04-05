@@ -1,22 +1,14 @@
 package com.cesi.ressourcesrelationnelles.features.users;
 
-import java.util.List;
-import java.util.Optional;
-
+import com.cesi.ressourcesrelationnelles.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.cesi.ressourcesrelationnelles.domain.User;
+import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RestController
@@ -27,6 +19,7 @@ public class UserController {
 	private UserRepository userRepository;
 
     @GetMapping("/user")
+    @CrossOrigin("*")
     public ResponseEntity<User> getUserById(@RequestParam(required = false) String id, @RequestParam(required = false) String email) {
         Optional<User> user;
         if(id != null){
@@ -45,6 +38,7 @@ public class UserController {
     }
 
     @GetMapping("/users")
+    @CrossOrigin("*")
     public ResponseEntity<List<User>> getUsers(@RequestParam(required = false) String id, @RequestParam(required = false) String lastName) {
         if(lastName != null){
             List<User> userList = userRepository.findUserByLastName(lastName);
@@ -59,6 +53,7 @@ public class UserController {
     }
 
     @PostMapping("/createUser")
+    @CrossOrigin("*")
     public ResponseEntity<User> createUser(@RequestBody User user) {
         try {
             User _user = userRepository.save(user);
@@ -69,6 +64,7 @@ public class UserController {
     }
 
     @DeleteMapping("/deleteUser")
+    @CrossOrigin("*")
     public ResponseEntity<HttpStatus> deleteUser(@RequestParam String id) {
         try {
             userRepository.deleteById(id);
@@ -79,6 +75,7 @@ public class UserController {
     }
 
     @PutMapping("/updateUser")
+    @CrossOrigin("*")
     public ResponseEntity<User> updateUser(@RequestParam String id, @RequestBody User user) {
         Optional<User> userData = userRepository.findById(id);
         if (userData.isPresent()) {
