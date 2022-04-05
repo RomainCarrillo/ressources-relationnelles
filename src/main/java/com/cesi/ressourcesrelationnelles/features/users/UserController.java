@@ -18,7 +18,7 @@ public class UserController {
 	private UserRepository userRepository;
 
     @GetMapping("/user")
-    public ResponseEntity<User> getUserById(@RequestParam(required = false) Long id, @RequestParam(required = false) String email) {
+    public ResponseEntity<User> getUserById(@RequestParam(required = false) String id, @RequestParam(required = false) String email) {
         Optional<User> user;
         if(id != null){
             user = userRepository.findById(id);
@@ -36,7 +36,7 @@ public class UserController {
     }
 
     @GetMapping("/users")
-    public ResponseEntity<List<User>> getUsers(@RequestParam(required = false) Long id, @RequestParam(required = false) String lastName) {
+    public ResponseEntity<List<User>> getUsers(@RequestParam(required = false) String id, @RequestParam(required = false) String lastName) {
         if(lastName != null){
             List<User> userList = userRepository.findUserByLastName(lastName);
             if(!userList.isEmpty())
@@ -60,7 +60,7 @@ public class UserController {
     }
 
     @DeleteMapping("/deleteUser")
-    public ResponseEntity<HttpStatus> deleteUser(@RequestParam Long id) {
+    public ResponseEntity<HttpStatus> deleteUser(@RequestParam String id) {
         try {
             userRepository.deleteById(id);
             return new ResponseEntity<>(HttpStatus.OK);
@@ -70,7 +70,7 @@ public class UserController {
     }
 
     @PutMapping("/updateUser")
-    public ResponseEntity<User> updateUser(@RequestParam Long id, @RequestBody User user) {
+    public ResponseEntity<User> updateUser(@RequestParam String id, @RequestBody User user) {
         Optional<User> userData = userRepository.findById(id);
         if (userData.isPresent()) {
             User _user = userData.get();

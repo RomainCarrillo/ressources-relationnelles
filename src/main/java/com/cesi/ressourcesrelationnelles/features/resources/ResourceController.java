@@ -18,22 +18,29 @@ public class ResourceController {
     private ResourceRepository resourceRepository;
 
     @GetMapping("/resource")
-    public ResponseEntity<Resource> getResource(@RequestParam Long id) {
+    public ResponseEntity<Resource> getResource(@RequestParam String id) {
         Optional<Resource> resource;
         resource = resourceRepository.findById(id);
         return resource.map(value -> new ResponseEntity<>(value, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
     }
 
     @GetMapping("/resources")
-    public ResponseEntity<List<Resource>> getResources(@RequestParam(required = false) Long resourcesType) { //TODO: Change Long to int
-        if(resourcesType != null){
-            List<Resource> resourceList = resourceRepository.findResourcesByType(Math.toIntExact(resourcesType));
+    public ResponseEntity<List<Resource>> getResources(@RequestParam(required = false) Long resourceType, @RequestParam(required = false) String creatorId) {
+        if(resourceType != null || creatorId != null){
+            List<Resource> resourceList = null;
+            if(resourceType != null && creatorId != null)
+                resourceList = resourceRepository.findResourcesByUserAndType(creatorId, Math.toIntExact(resourceType));
+            else if(resourceType != null)
+                resourceList = resourceRepository.findResourcesByType(Math.toIntExact(resourceType));
+            else if(creatorId != null)
+                resourceList = resourceRepository.findResourcesByCreatorId(creatorId);
+
             if(!resourceList.isEmpty())
                 return new ResponseEntity<>(resourceList, HttpStatus.OK);
             else
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        // If no argument, get every resources
+        // If no argument, get every resource
         else return new ResponseEntity<>(resourceRepository.findAll(), HttpStatus.OK);
     }
 
@@ -48,7 +55,7 @@ public class ResourceController {
     }
 
     @DeleteMapping("/deleteResource")
-    public ResponseEntity<HttpStatus> deleteResource(@RequestParam Long id) {
+    public ResponseEntity<HttpStatus> deleteResource(@RequestParam String id) {
         try {
             resourceRepository.deleteById(id);
             return new ResponseEntity<>(HttpStatus.OK);

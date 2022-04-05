@@ -18,16 +18,16 @@ public class CommentController {
     private CommentRepository commentRepository;
 
     @GetMapping("/comment")
-    public ResponseEntity<Comment> getComment(@RequestParam Long id) {
+    public ResponseEntity<Comment> getComment(@RequestParam String id) {
         Optional<Comment> comment;
         comment = commentRepository.findById(id);
         return comment.map(value -> new ResponseEntity<>(value, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
     }
 
     @GetMapping("/comments")
-    public ResponseEntity<List<Comment>> getComments(@RequestParam(required = false) Long resourceId) { //TODO: Change Long to int
+    public ResponseEntity<List<Comment>> getComments(@RequestParam(required = false) String resourceId) {
         if(resourceId != null){
-            List<Comment> commentList = commentRepository.findCommentsByResource(Math.toIntExact(resourceId));
+            List<Comment> commentList = commentRepository.findCommentsByResource(resourceId);
             if(!commentList.isEmpty())
                 return new ResponseEntity<>(commentList, HttpStatus.OK);
             else
@@ -48,7 +48,7 @@ public class CommentController {
     }
 
     @DeleteMapping("/deleteComment")
-    public ResponseEntity<HttpStatus> deleteComment(@RequestParam Long id) {
+    public ResponseEntity<HttpStatus> deleteComment(@RequestParam String id) {
         try {
             commentRepository.deleteById(id);
             return new ResponseEntity<>(HttpStatus.OK);

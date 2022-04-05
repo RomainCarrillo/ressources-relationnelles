@@ -18,7 +18,7 @@ public class StatisticController {
     private StatisticRepository statisticRepository;
 
     @GetMapping("/statistic")
-    public ResponseEntity<Statistic> getStatistic(@RequestParam Long id) {
+    public ResponseEntity<Statistic> getStatistic(@RequestParam String id) {
         Optional<Statistic> statistic;
         if(id != null){
             statistic = statisticRepository.findById(id);
@@ -30,7 +30,7 @@ public class StatisticController {
     }
 
     @GetMapping("/statistics")
-    public ResponseEntity<List<Statistic>> getStatistics(@RequestParam(required = false) Long id) {
+    public ResponseEntity<List<Statistic>> getStatistics(@RequestParam(required = false) String id) {
         if(id != null){
             List<Statistic> statisticList = statisticRepository.findStatisticsByResource(id);
             if(!statisticList.isEmpty())
@@ -53,7 +53,7 @@ public class StatisticController {
     }
 
     @DeleteMapping("/deleteStatistic")
-    public ResponseEntity<HttpStatus> deleteStatistic(@RequestParam Long id) {
+    public ResponseEntity<HttpStatus> deleteStatistic(@RequestParam String id) {
         try {
             statisticRepository.deleteById(id);
             return new ResponseEntity<>(HttpStatus.OK);

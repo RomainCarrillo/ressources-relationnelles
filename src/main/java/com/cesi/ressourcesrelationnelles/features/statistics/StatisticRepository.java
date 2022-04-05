@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import java.util.List;
 
-public interface StatisticRepository extends MongoRepository<Statistic, Long> {
+public interface StatisticRepository extends MongoRepository<Statistic, String> {
     @Query("{'id_ressource':?0}")
-    List<Statistic> findStatisticsByResource(Long id);
+    List<Statistic> findStatisticsByResource(String id);
 }
