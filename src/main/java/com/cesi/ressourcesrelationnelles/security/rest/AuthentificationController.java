@@ -26,7 +26,7 @@ public class AuthentificationController {
 	public InMemorySessionRegistry sessionRegistry;
 
 	@PostMapping("/login")
-	@CrossOrigin("http://localhost:4200/")
+	@CrossOrigin("*")
 	public ResponseEntity<ResponseDTO> login(@RequestBody UserDTO user) {
 		manager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
 		final String sessionId = sessionRegistry.registerSession(user.getUsername());

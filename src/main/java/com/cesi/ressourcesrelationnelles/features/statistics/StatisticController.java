@@ -18,6 +18,7 @@ public class StatisticController {
     private StatisticRepository statisticRepository;
 
     @GetMapping("/statistic")
+    @CrossOrigin("*")
     public ResponseEntity<Statistic> getStatistic(@RequestParam String id) {
         Optional<Statistic> statistic;
         if(id != null){
@@ -30,6 +31,7 @@ public class StatisticController {
     }
 
     @GetMapping("/statistics")
+    @CrossOrigin("*")
     public ResponseEntity<List<Statistic>> getStatistics(@RequestParam(required = false) String id) {
         if(id != null){
             List<Statistic> statisticList = statisticRepository.findStatisticsByResource(id);
@@ -43,6 +45,7 @@ public class StatisticController {
     }
 
     @PostMapping("/createStatistic")
+    @CrossOrigin("*")
     public ResponseEntity<Statistic> createStatistic(@RequestBody Statistic statistic) {
         try {
             Statistic _statistic = statisticRepository.save(statistic);
@@ -53,6 +56,7 @@ public class StatisticController {
     }
 
     @DeleteMapping("/deleteStatistic")
+    @CrossOrigin("*")
     public ResponseEntity<HttpStatus> deleteStatistic(@RequestParam String id) {
         try {
             statisticRepository.deleteById(id);
