@@ -1,10 +1,11 @@
 package com.cesi.ressourcesrelationnelles.features.statistics;
 
-import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.stereotype.Repository;
-
 import com.cesi.ressourcesrelationnelles.domain.Statistic;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
+import java.util.List;
 
-@Repository
-public interface StatisticRepository extends MongoRepository<Statistic, Long> {
+public interface StatisticRepository extends MongoRepository<Statistic, String> {
+    @Query("{'id_ressource':?0}")
+    List<Statistic> findStatisticsByResource(String id);
 }
