@@ -1,12 +1,13 @@
 package com.cesi.ressourcesrelationnelles.domain;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "Comment")
 public class Comment {
     @Id
-    private Long id;
+    private ObjectId id;
     private String author;
     private String title;
     private String content;
@@ -15,7 +16,7 @@ public class Comment {
     public Comment() {
     }
 
-    public Comment(Long id, String author, String title, String content) {
+    public Comment(ObjectId id, String author, String title, String content) {
         this.setId(id);
         this.setAuthor(author);
         this.setTitle(title);
@@ -31,11 +32,11 @@ public class Comment {
         this.setTitle(title);
     }
 
-    public Long getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 
