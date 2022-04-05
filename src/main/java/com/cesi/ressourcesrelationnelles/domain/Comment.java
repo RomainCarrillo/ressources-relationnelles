@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Comment {
     @Id
     private ObjectId id;
+    private ObjectId resourceId;
     private String author;
     private String title;
     private String content;
@@ -16,8 +17,9 @@ public class Comment {
     public Comment() {
     }
 
-    public Comment(ObjectId id, String author, String title, String content) {
+    public Comment(ObjectId id, ObjectId resourceId, String author, String title, String content) {
         this.setId(id);
+        this.setResourceId(resourceId);
         this.setAuthor(author);
         this.setTitle(title);
         this.setContent(content);
@@ -38,6 +40,14 @@ public class Comment {
 
     public void setId(ObjectId id) {
         this.id = id;
+    }
+
+    public ObjectId getResourceId() {
+        return resourceId;
+    }
+
+    public void setResourceId(ObjectId id) {
+        this.resourceId = resourceId;
     }
 
     public String getAuthor() {

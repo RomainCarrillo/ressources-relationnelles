@@ -9,14 +9,13 @@ public class Resource {
 
     @Id
     private ObjectId id;
-    private String resourcesName;
+    private String resourceName;
+    private int resourceType;
 
-    private int resourcesTypes;
 
-
-    public Resource(int resourcesTypes, String resourcesName, ObjectId id) {
-        this.resourcesTypes = resourcesTypes;
-        this.resourcesName = resourcesName;
+    public Resource(int resourceType, String resourceName, ObjectId id) {
+        this.resourceType = resourceType;
+        this.resourceName = resourceName;
         this.id = id;
     }
 
@@ -24,20 +23,20 @@ public class Resource {
 
     }
 
-    public String getResourcesName() {
-        return resourcesName;
+    public String getResourceName() {
+        return resourceName;
     }
 
-    public void setResourcesName(String resourcesName) {
-        this.resourcesName = resourcesName;
+    public void setResourceName(String resourceName) {
+        this.resourceName = resourceName;
     }
 
-    public int getResourcesTypes() {
-        return resourcesTypes;
+    public int getResourceType() {
+        return resourceType;
     }
 
-    public void setResourcesTypes(int resourcesTypes) {
-        this.resourcesTypes = resourcesTypes;
+    public void setResourceType(int resourceType) {
+        this.resourceType = resourceType;
     }
 
     public ObjectId getId() {
